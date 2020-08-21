@@ -1,10 +1,10 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var lowercase = 'abcdefghijklmnopqrstuvwxyz';
-var	uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-var	number = '0123456789';
-var symbol = '*;<>()[]{}#$?!^|';
-//var length = '8-100'
+var lowercase = "abcdefghijklmnopqrstuvwxyz";
+var	uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var	number = "0123456789";
+var symbol = "*;<>()[]{}#$?!^|";
+
 ;
 
 // Write password to the #password input
@@ -17,19 +17,40 @@ function writePassword() {
 }
 
 function generatePassword() {
+	var pwchar = "";
 	var length = prompt("How long would you like your password to be?");
-	var lowercase = confirm("Do you want to use lowercase letters?");
-	var uppercase = confirm("Do you want to use uppercase letters?");
-	var number = confirm("Do you want to use numbers?");
-	var symbol = confirm("Do you want to use symbols?");
+	if(length >8 && length < 128) {
+		password.length = length; 
+	
+	uppercase = confirm("Do you want to use uppercase letters?");
+	lowercase = confirm("Do you want to use lowercase letters?");
+	number = confirm("Do you want to use numbers?");
+	symbol = confirm("Do you want to use symbols?");
+	}
 
 
+	else {
+		alert("Please select a password between 8 and 128 characters!");
+	}
+	if (uppercase === true){
+		pwchar += uppercase;
+	}
+	if (lowercase === true) {
+		pwchar += lowercase;
+	}
+	if (number === true) {
+		pwchar += number;
+	}
+	if (symbol === true) {
+		pwchar += symbol;
+	}
+	else {
+		alert("Cannot generate password!");
+	}
 
-	var result           = '';
-   var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-   var charactersLength = characters.length;
+	var result = "";
    for ( var i = 0; i < length; i++ ) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      result += pwchar.charAt(Math.floor(Math.random() * pwchar.length));
    }
    return result;
 }
