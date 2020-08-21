@@ -19,7 +19,7 @@ function writePassword() {
 function generatePassword() {
 	var pwchar = "";
 	var length = prompt("How long would you like your password to be?");
-	if(length >8 && length < 128) {
+	if(length >7 && length < 129) {
 		password.length = length; 
 	
 	var pwuppercase = confirm("Do you want to use uppercase letters?");
